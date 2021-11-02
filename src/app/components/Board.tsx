@@ -53,7 +53,7 @@ function Board(): JSX.Element {
     </div>
   );
 
-  function calculateWinner(squares) {
+  function calculateWinner(squares: string[] | null[]) {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],

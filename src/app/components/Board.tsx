@@ -5,7 +5,7 @@ function Board(): JSX.Element {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
 
-  function handleClick(i) {
+  function handleClick(i:number) {
     if (calculateWinner(squares) || squares[i]) {
         return;
     }

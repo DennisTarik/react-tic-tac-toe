@@ -5,9 +5,9 @@ function Board(): JSX.Element {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
 
-  function handleClick(i:number) {
+  function handleClick(i: number) {
     if (calculateWinner(squares) || squares[i]) {
-        return;
+      return;
     }
     const newSquares = squares.slice();
     newSquares[i] = xIsNext ? 'X' : 'O';
@@ -16,12 +16,7 @@ function Board(): JSX.Element {
   }
 
   function renderSquare(i: number) {
-    return (
-    <Square
-     value={squares[i]}
-     onClick={() => handleClick(i)}
-    />
-    );
+    return <Square value={squares[i]} onClick={() => handleClick(i)} />;
   }
 
   const winner = calculateWinner(squares);
@@ -66,12 +61,16 @@ function Board(): JSX.Element {
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      if (
+        squares[a] &&
+        squares[a] === squares[b] &&
+        squares[a] === squares[c]
+      ) {
         return squares[a];
       }
     }
     return null;
-  };
+  }
 }
 
 export default Board;
